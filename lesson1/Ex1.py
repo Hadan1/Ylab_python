@@ -8,4 +8,3 @@ def domain_name(url):
     else:
         n = m[:m.find('.')]
     return n
-    

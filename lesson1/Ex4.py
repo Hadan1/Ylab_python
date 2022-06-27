@@ -1,18 +1,16 @@
-from itertools import combinations, permutations
+from itertools import combinations
 
-
-s = 'XbanTanaY'
 
 def bananas(s) -> set:
     lst = []
-    comb =[]
-    result = set()
-    if len(s) > 6:
-        m = s + ('-' * (len(s) - 6))
-        n = set(combinations(m, len(s)))
-        for i in n:
-            if set('banana').issubset(i):
-                lst.append(i)
-        for t in lst:
-            itertools.permutations(iterable, r=None)
-    return comb
+    lenght = len(s) - 6
+    comb = list(combinations(range(len(s)), lenght))
+    for i in comb:
+        word = list(s)
+        if (''.join(word)).replace('-','') == 'banana':
+                lst.append(''.join(word))
+        for t in i:
+            word[t] = '-'
+            if (''.join(word)).replace('-','') == 'banana':
+                lst.append(''.join(word))
+    return set(lst)
