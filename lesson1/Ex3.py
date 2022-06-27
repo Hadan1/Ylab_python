@@ -5,7 +5,3 @@ def zeros(n):
             sum += 1
             i = i // 5
     return sum
-
-assert zeros(0) == 0
-assert zeros(6) == 1
-assert zeros(30) == 7
