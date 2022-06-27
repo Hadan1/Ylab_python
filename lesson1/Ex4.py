@@ -7,10 +7,8 @@ def bananas(s) -> set:
     comb = list(combinations(range(len(s)), lenght))
     for i in comb:
         word = list(s)
-        if (''.join(word)).replace('-','') == 'banana':
-                lst.append(''.join(word))
         for t in i:
             word[t] = '-'
-            if (''.join(word)).replace('-','') == 'banana':
-                lst.append(''.join(word))
+        if (''.join(word)).replace('-','') == 'banana':
+            lst.append(''.join(word))
     return set(lst)

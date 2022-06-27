@@ -6,5 +6,6 @@ def domain_name(url):
         m = url[(url.find('//')+2):]
         n = m[:m.find('.')]
     else:
+        m = url
         n = m[:m.find('.')]
     return n
