@@ -1,5 +1,5 @@
-points: list = [(2, 5), (5, 2), (6, 6), (8, 3)]
-start_point = (0, 2)
+points: list = [(2, 5), (5, 2), (6, 6), (8, 3)] #координаты - список кортежей, через запятую, указывается вручную
+start_point = (0, 2) #стартовая точка - кортеж, указывается вручную
 distance = 0
 point_neighbour = 0
 
@@ -25,12 +25,12 @@ while True:
         distance
         ))
         points.remove(point_neighbour)
-    else:
+    else: #если список пуст, значит мы прошли все пункты. следующий пункт - стартовая точка
         point_neighbour = start_point
         points.append(start_point)
         continue
 
-    if point_neighbour == start_point:
+    if point_neighbour == start_point: #завершение программы, если конечная точка = начальной точке. мы вернулись обратно
         print('Кратчайший путь = ' + str(distance))
         break
     
