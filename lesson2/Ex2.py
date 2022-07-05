@@ -19,17 +19,45 @@ def press(cell_number):
     turns[computer_turn] = token
     buttons[computer_turn].config(text=token, bg='green', state='disabled')
     turns_left.remove(computer_turn)
-    # losing_check(token)
     if turns_left == []: #ничья
         pass
 
 def losing_check(token):
-    count = 0
+    main_count = -1
     for i in turns:
-        if i == token and (turns.index(i) % 10) <= 5:
-            # print('asd')
-            if turns.index(i) % 10 <= 5 and turns[turns.index(i)] == turns[turns.index(i)+1] == turns[turns.index(i)+2] == turns[turns.index(i)+3] == turns[turns.index(i)+4]:
-                end_game()
+        main_count += 1
+        if turns[main_count] == token and (main_count % 10) <= 5:
+            if turns[main_count] == turns[main_count+1] == turns[main_count+2] \
+                == turns[main_count+3] == turns[main_count+4]:
+                ending_color_line = [main_count, main_count+1, main_count+2, main_count+3, main_count+4]
+                print('END GAME')
+
+    main_count = -1
+    for i in turns:
+        main_count += 1
+        if turns[main_count] == token and main_count < 60:
+            if turns[main_count] == turns[main_count+10] == turns[main_count+20] \
+                == turns[main_count+30] == turns[main_count+40]:
+                ending_color_line = [main_count, main_count+10, main_count+20, main_count+30, main_count+40]
+                print('END GAME2')
+
+    main_count = -1
+    for i in turns:
+        main_count += 1
+        if turns[main_count] == token and main_count > 40 and (main_count % 10) <= 5:
+            if turns[main_count] == turns[main_count-9] == turns[main_count-18] \
+                == turns[main_count-27] == turns[main_count-36]:
+                ending_color_line = [main_count, main_count-9, main_count-18, main_count-27, main_count-36]
+                print('END GAME3')
+
+    main_count = -1
+    for i in turns:
+        main_count += 1
+        if turns[main_count] == token and main_count < 60 and (main_count % 10) <= 5:
+            if turns[main_count] == turns[main_count+11] == turns[main_count+22] \
+                == turns[main_count+33] == turns[main_count+44]:
+                print('END GAME4')
+        
 
             # if turns.index(i) < 60 and turns[turns.index(i)] == \
             # turns[turns.index(i)+10] == turns[turns.index(i)+20] == turns[turns.index(i)+30] == turns[turns.index(i)+40]:
@@ -38,7 +66,8 @@ def losing_check(token):
 def end_game():
     print('END GAME')
 
-
+# up_diag_exception = [0, 1, 2, 3, 10, 11, 12, 20, 21, 30, 69, 78, 79, 87, 88, 89, 96, 97, 98, 99]
+# down_diag_exception = []
 turns = [None] * 100
 turns_left = list(range(100))
 
