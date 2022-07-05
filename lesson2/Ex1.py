@@ -1,4 +1,4 @@
-points: list = [(2, 5), (5, 2), (6, 6), (8, 3)] #координаты - список кортежей, через запятую, указывается вручную
+points = [(2, 5), (5, 2), (6, 6), (8, 3)] #координаты - список кортежей, через запятую, указывается вручную
 start_point = (0, 2) #стартовая точка - кортеж, указывается вручную
 distance = 0
 point_neighbour = 0
@@ -10,12 +10,10 @@ current_point = start_point
 
 while True:
     min_lengh = 0
-    for i in points:
-        if min_lengh == 0: 
+    for i in points: #поиск ближайшей точки
+        if find_length(current_point, i) < min_lengh or min_lengh == 0: 
             min_lengh, point_neighbour = find_length(current_point, i), i
-        if find_length(current_point, i) < min_lengh:
-            min_lengh, point_neighbour = find_length(current_point, i), i
-    
+
     distance += min_lengh
 
     if points != []:
