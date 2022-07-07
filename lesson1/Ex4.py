@@ -9,6 +9,6 @@ def bananas(s) -> set:
         word = list(s)
         for t in i:
             word[t] = '-'
-        if (''.join(word)).replace('-','') == 'banana':
+        if (''.join(word)).replace('-', '') == 'banana':
             lst.append(''.join(word))
     return set(lst)
