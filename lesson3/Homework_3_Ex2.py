@@ -3,7 +3,7 @@ import time
 
 call_count = 12
 start_sleep_time = 0.01
-factor = 2
+factor = 10
 border_sleep_time = 2
 
 
@@ -20,7 +20,7 @@ def decorator_receiver(call_count_arg, start_sleep_time_arg, factor_arg, border_
                 result = func()
                 print('Запуск номер {}. Ожидание: {} секунд. Результат функции = {}'.format(launch_num, t, result))
                 if t <= border_sleep_time_arg:
-                    t = t * (2 ** (factor_arg - 1))
+                    t = t * factor_arg
                     if t > border_sleep_time_arg:
                         t = border_sleep_time_arg
                 else:
